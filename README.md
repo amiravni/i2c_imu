@@ -12,3 +12,16 @@ The list of IMUs supported by RTIMULib is as follows:
 - [MinIMU-9 v3 Gyro, Accelerometer, and Compass (L3GD20H and LSM303D Carrier) by Polulu](http://www.pololu.com/product/2468)
 
 
+
+
+## Making it work on odroid C2
+
+1. Download i2c_imu package, extract ~/catkin/src/
+2. Download [RTIMULib2](https://github.com/RTIMULib/RTIMULib2)
+3. Compile [RTIMULib2](https://github.com/RTIMULib/RTIMULib2) according to [this Readme](https://github.com/RTIMULib/RTIMULib2/tree/master/Linux)
+4. Move the [RTIMULib](https://github.com/RTIMULib/RTIMULib2/tree/master/RTIMULib) source folder to ~/catkin/src/i2c_imu/
+5. Move the [RTIMULib](https://github.com/RTIMULib/RTIMULib2/tree/master/Linux) compiled folder (under /build/) to the ~/catkin/devel/lib/i2c_imu/
+6. Add RTIMULib to include_directories under the [CMakeLists.txt](https://github.com/jeskesen/i2c_imu/blob/master/CMakeLists.txt) file 
+7. Compile the i2c_imu package ("Catkin_make")
+8. roslaunch the [launch file](https://github.com/jeskesen/i2c_imu/blob/master/launch/i2c_imu_auto.launch)
+
